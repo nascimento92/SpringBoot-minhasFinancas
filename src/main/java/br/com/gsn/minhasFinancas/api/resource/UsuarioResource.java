@@ -10,18 +10,17 @@ import br.com.gsn.minhasFinancas.api.dto.UsuarioDTO;
 import br.com.gsn.minhasFinancas.exception.ErroAutenticacao;
 import br.com.gsn.minhasFinancas.exception.RegraNegocioExpection;
 import br.com.gsn.minhasFinancas.model.entity.Usuario;
+import br.com.gsn.minhasFinancas.service.LancamentoService;
 import br.com.gsn.minhasFinancas.service.UsuarioService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/usuarios")
+@RequiredArgsConstructor
 public class UsuarioResource {
 	
-	private UsuarioService service;
-	
-	public UsuarioResource(UsuarioService service) {
-		this.service=service;
-	}
-	
+	private final UsuarioService service;
+
 	@PostMapping("/autenticar")
 	public ResponseEntity autenticar(@RequestBody UsuarioDTO dto) {
 	
